@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+	
+	function computerPlay() {
+		const selection = Math.floor(Math.random() * 3);
+		return selection == 0 ? "ROCK" :
+			   selection == 1 ? "PAPER" :
+			   selection == 2 ? "SCISSORS" :
+			   				   "Someting is wrong"	
+	}
+
+	function playerPlay() {
+		return selection = prompt("Enter Rock, Paper, or Scissors: ")
+
+	}
+
+	function playRound(playerSelection, computerSelection) {
+		return playerSelection.toUpperCase() == computerSelection ? "Draw" :
+			   playerSelection.toUpperCase() == "ROCK" && computerSelection == "PAPER" ? "You lose" :
+			   playerSelection.toUpperCase() == "ROCK" && computerSelection == "SCISSORS" ? "You win" :
+			   playerSelection.toUpperCase() == "PAPER" && computerSelection == "SCISSORS" ? "You lose" :
+			   playerSelection.toUpperCase() == "SCISSORS" && computerSelection == "PAPER" ? "You win" :
+			   playerSelection.toUpperCase() == "PAPER" && computerSelection == "ROCK" ? "You win" :
+			   playerSelection.toUpperCase() == "SCISSORS" && computerSelection == "ROCK" ? "You lose" :
+			   "Something went wrong"
+	}
+
+	const playerSelection = playerPlay()
+	const computerSelection = computerPlay()
+	console.log(playRound(playerSelection, computerSelection))
+
+	function game() {
+		var outcome = playRound(playerSelection, computerSelection)
+		for (var i = 0; i < 5; i++) {
+			var player = 0;
+			var computer = 0;
+			switch(outcome) {
+				case "Draw":
+					i -= 1;
+				case "You lose":
+					computer +=1;
+				case "You win":
+					player += 1;
+				default:
+					console.log("Something went wrong")
+			}
+		}
+		return computer > player ? "You lost " + computer + " to " + player :
+								   "You won " + computer + " to " + player
+	}
+
+	console.log(game())
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
